@@ -84,7 +84,10 @@ class ResizingIntSet
   end
 
   def insert(num)
-    
+
+    if count + 1 == @num_buckets
+      resize!
+    end
     if @store.include?([num])
       return false 
     else 
@@ -118,9 +121,16 @@ class ResizingIntSet
   end
 
   def resize!
-    if count == num_buckets
-      @store.concat(Array.new(num_buckets) { Array.new })
-      
+    
+    @num_buckets *= 2
+    oldstore = @store 
+    @store = Array.new(@num_buckets) { Array.new }
+    
+    oldstore.each do |bucket|
+      bucket.each do |ele|
+        self.insert(ele)
+      end
     end
+        
   end
 end
