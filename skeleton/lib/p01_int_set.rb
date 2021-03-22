@@ -122,11 +122,14 @@ class ResizingIntSet
 
   def resize!
     
-    # @num_buckets *= 2
-    oldstore = @store 
-    new_store = Array.new(@num_buckets) { Array.new }
-    @store = oldstore.concat(new_store)
-    
-        
+  # @num_buckets *= 2
+  oldstore = @store 
+  new_store = Array.new(@num_buckets) { Array.new }
+  @store = oldstore.concat(new_store)
+
   end
+  
+        
+  
 end
+
