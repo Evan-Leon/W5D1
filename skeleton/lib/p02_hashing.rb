@@ -3,13 +3,28 @@ class Integer
 end
 
 class Array
+  
   def hash
-    new_hash = Hash.new(1)
-    if new_hash[self] != 1 
-      new_hash[self]
-    else  
-      new_hash[self]
+
+    
+    new_hash = 0
+
+
+
+    self.each do |num|
+      new_hash += num.hash
     end
+
+    # new_hash += self.hash
+
+    # if new_hash[self] != 1 
+    #   new_hash[self]
+    # else  
+    #   new_hash[self]
+    # end    
+    # new_hash.hash
+
+    new_hash
   end
 end
 
