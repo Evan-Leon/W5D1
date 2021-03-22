@@ -122,15 +122,11 @@ class ResizingIntSet
 
   def resize!
     
-    @num_buckets *= 2
+    # @num_buckets *= 2
     oldstore = @store 
-    @store = Array.new(@num_buckets) { Array.new }
+    new_store = Array.new(@num_buckets) { Array.new }
+    @store = oldstore.concat(new_store)
     
-    oldstore.each do |bucket|
-      bucket.each do |ele|
-        self.insert(ele)
-      end
-    end
         
   end
 end

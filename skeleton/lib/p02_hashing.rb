@@ -4,6 +4,12 @@ end
 
 class Array
   def hash
+    new_hash = Hash.new(1)
+    if new_hash[self] != 1 
+      new_hash[self]
+    else  
+      new_hash[self]
+    end
   end
 end
 
