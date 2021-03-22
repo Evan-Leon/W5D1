@@ -5,16 +5,11 @@ end
 class Array
   
   def hash
+        new_hash = 0
 
-    
-    new_hash = 0
-
-
-
-    self.each do |num|
-      new_hash += num.hash
+    self.each_with_index do |num, i|
+      new_hash += num.hash + i.hash 
     end
-
     # new_hash += self.hash
 
     # if new_hash[self] != 1 
